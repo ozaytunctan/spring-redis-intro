@@ -1,6 +1,7 @@
 package com.otunctan.entity;
 
 
+import com.otunctan.annotation.EncryptedString;
 import com.otunctan.entity.base.BaseEntity;
 
 import javax.persistence.Column;
@@ -29,6 +30,10 @@ public class Employee extends BaseEntity {
 
     @Column(name = "phone")
     private String phone;
+
+    @EncryptedString
+    @Column(name = "identity_number")
+    private String identityNumber;
 
 
     public Long getId() {
@@ -61,5 +66,13 @@ public class Employee extends BaseEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getIdentityNumber() {
+        return identityNumber;
+    }
+
+    public void setIdentityNumber(String identityNumber) {
+        this.identityNumber = identityNumber;
     }
 }
