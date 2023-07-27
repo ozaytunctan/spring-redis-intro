@@ -1,5 +1,7 @@
 package com.otunctan.entity.base;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
@@ -8,6 +10,8 @@ import java.time.LocalDate;
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
 
+
+    @CreationTimestamp
     @Column(name = "created_on")
     private LocalDate createdOn;
 

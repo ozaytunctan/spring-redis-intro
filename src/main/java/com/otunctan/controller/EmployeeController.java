@@ -6,7 +6,6 @@ import com.otunctan.dto.CreateEmployeeResponseDto;
 import com.otunctan.dto.EditEmployeeRequestDto;
 import com.otunctan.dto.EditEmployeeResponseDto;
 import com.otunctan.dto.EmployeeDto;
-import com.otunctan.entity.Employee;
 import com.otunctan.service.EmployeeService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RestController
@@ -44,9 +44,17 @@ public class EmployeeController {
 
     @PutMapping(path = "/edit/{id}")
     public EditEmployeeResponseDto editEmployee(@RequestBody EditEmployeeRequestDto request, @PathVariable(name = "id") Long id) {
-        return this.employeeService.editEmployeeById(request, id);
-    }
+        try {
+            EditEmployeeResponseDto employee = this.employeeService.editEmployeeById(request, id);
 
+            return employee;
+
+        } catch (EntityNotFoundException e) {
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 
     @DeleteMapping(path = "/delete/{id}")

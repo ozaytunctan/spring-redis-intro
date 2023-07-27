@@ -10,10 +10,15 @@ import com.otunctan.exception.CreateEmployeeException;
 import com.otunctan.mapper.ValueMapper;
 import com.otunctan.repository.EmployeeRepository;
 import com.otunctan.service.EmployeeService;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -37,6 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public CreateEmployeeResponseDto createEmployee(CreateEmployeeRequestDto request) {
 
         if (Objects.isNull(request)) {
@@ -79,6 +85,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         editEmployeeResponse.setPhone(editEmployee.getPhone());
         editEmployeeResponse.setActive(editEmployee.isActive());
         editEmployeeResponse.setCreatedOn(editEmployee.getCreatedOn());
+
+
+        if (Objects.nonNull(editEmployee.getId())) {
+            throw new IllegalArgumentException("employee update error");
+        }
+
         return editEmployeeResponse;
     }
 
