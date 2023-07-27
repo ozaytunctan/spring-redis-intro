@@ -2,10 +2,12 @@ package com.otunctan.entity;
 
 
 import com.otunctan.annotation.EncryptedString;
+import com.otunctan.config.EmployeeCallbackListener;
 import com.otunctan.entity.base.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee")
 @SequenceGenerator(name = "employeeIdGenerator", sequenceName = "SQ_EMPLOYEE", allocationSize = 1)
+@EntityListeners(EmployeeCallbackListener.class)
 public class Employee extends BaseEntity {
 
     @Id
