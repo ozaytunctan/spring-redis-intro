@@ -3,9 +3,11 @@ package com.otunctan.entity;
 
 import com.otunctan.annotation.EncryptedString;
 import com.otunctan.config.EmployeeCallbackListener;
+import com.otunctan.convert.IdentityNumberConverter;
 import com.otunctan.entity.base.BaseEntity;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -34,7 +36,8 @@ public class Employee extends BaseEntity {
     @Column(name = "phone")
     private String phone;
 
-    @EncryptedString
+    //    @EncryptedString
+    @Convert(converter = IdentityNumberConverter.class)
     @Column(name = "identity_number")
     private String identityNumber;
 
