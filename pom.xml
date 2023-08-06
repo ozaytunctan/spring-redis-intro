@@ -108,23 +108,23 @@
 <!--            </distributionManagement>-->
 <!--        </profile>-->
 
-<!--        <profile>-->
-<!--            <id>prod</id>-->
-<!--            <distributionManagement>-->
-<!--                <snapshotRepository>-->
-<!--                    <id>nexus-snapshot</id>-->
-<!--                    <url>http://localhost:8081/repository/nexus-snapshot/</url>-->
-<!--                </snapshotRepository>-->
-<!--                <repository>-->
-<!--                    <id>nexus-release</id>-->
-<!--                    <url>http://localhost:8081/repository/nexus-release/</url>-->
-<!--                </repository>-->
-<!--            </distributionManagement>-->
-<!--            <activation>-->
-<!--                <activeByDefault>true</activeByDefault>-->
-<!--            </activation>-->
-<!--        </profile>-->
-<!--    </profiles>-->
+        <profile>
+            <id>prod</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>nexus-snapshot</id>
+                    <url>http://localhost:8081/repository/nexus-snapshot/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>nexus-release</id>
+                    <url>http://localhost:8081/repository/nexus-release/</url>
+                </repository>
+            </distributionManagement>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 
 
 
