@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.otunctan</groupId>
     <artifactId>redis-cache-app</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>redis-cache-app</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -19,7 +19,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/ozaytunctan/spring-redis-intro.git</developerConnection>
         <url>https://github.com/ozaytunctan/spring-redis-intro.git</url>
-        <tag>redis-cache-app-0.0.2</tag>
+        <tag>HEAD</tag>
     </scm>
     <dependencies>
         <dependency>
