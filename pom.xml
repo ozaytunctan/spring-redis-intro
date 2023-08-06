@@ -60,33 +60,66 @@
         </dependency>
     </dependencies>
 
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>nexus-snapshot</id>-->
-<!--            <url>http://localhost:8081/repository/nexus-snapshot/</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>nexus-snapshot</id>-->
+    <!--            <url>http://localhost:8081/repository/nexus-snapshot/</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
 
-<!--        <repository>-->
-<!--            <id>nexus-release</id>-->
-<!--            <url>http://localhost:8081/repository/nexus-release/</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-    <distributionManagement>
-        <snapshotRepository>
-            <id>nexus-snapshot</id>
-            <url>http://localhost:8081/repository/nexus-snapshot/</url>
-        </snapshotRepository>
-        <repository>
-            <id>nexus-release</id>
-            <url>http://localhost:8081/repository/nexus-release/</url>
-        </repository>
-    </distributionManagement>
+    <!--        <repository>-->
+    <!--            <id>nexus-release</id>-->
+    <!--            <url>http://localhost:8081/repository/nexus-release/</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
+    <!--    <distributionManagement>-->
+    <!--        <snapshotRepository>-->
+    <!--            <id>nexus-snapshot</id>-->
+    <!--            <url>http://localhost:8081/repository/nexus-snapshot/</url>-->
+    <!--        </snapshotRepository>-->
+    <!--        <repository>-->
+    <!--            <id>nexus-release</id>-->
+    <!--            <url>http://localhost:8081/repository/nexus-release/</url>-->
+    <!--        </repository>-->
+    <!--    </distributionManagement>-->
+
+    <profiles>
+        <profile>
+            <id>nexus_dev</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>nexus-snapshot</id>
+                    <url>http://localhost:8081/repository/nexus-snapshot/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>nexus-release</id>
+                    <url>http://localhost:8081/repository/nexus-release/</url>
+                </repository>
+            </distributionManagement>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>nexus_prod</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>nexus-snapshot</id>
+                    <url>http://localhost:8081/repository/nexus-snapshot/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>nexus-release</id>
+                    <url>http://localhost:8081/repository/nexus-release/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
