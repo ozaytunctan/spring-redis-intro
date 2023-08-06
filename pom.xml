@@ -107,9 +107,6 @@
                     <url>http://localhost:8081/repository/nexus-release/</url>
                 </repository>
             </distributionManagement>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
 
         <profile>
